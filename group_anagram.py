@@ -31,12 +31,14 @@ def count_ascii(word):
 
 def group_anagrams(arr):
   return sorted(arr, key = count_ascii)
+################################
+# Correct Implementation
+################################
 
 def groupAnagrams(strs):
     freq = {}
-        
     for i in sorted(strs):
-        val = tuple(sorted(i))
+        val = tuple(sorted(i))  # This has to be converted to tuple because sorted returns list which is unhashable
         if val not in freq:
             freq[val] = []
             freq[val].append(i)
