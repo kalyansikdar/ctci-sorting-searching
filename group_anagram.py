@@ -1,4 +1,12 @@
-# This program will fail in test cases where the ascii value of words in the given list are same, need to try another solution
+# The first 2 solutions will fail in test cases where the ascii value of words in the given list are same, need to try another solution
+# The function - groupAnagrams is the correct implementation of the problem
+# Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+# Output:
+# [
+#   ["ate","eat","tea"],
+#   ["nat","tan"],
+#   ["bat"]
+# ]
 
 def group_anagrams(arr):
   holder = []
@@ -23,7 +31,21 @@ def count_ascii(word):
 
 def group_anagrams(arr):
   return sorted(arr, key = count_ascii)
+
+def groupAnagrams(strs):
+    freq = {}
+        
+    for i in sorted(strs):
+        val = tuple(sorted(i))
+        if val not in freq:
+            freq[val] = []
+            freq[val].append(i)
+        else:
+            freq[val].append(i)
+    
+    return list(freq.values())
+
+
   
 arr = ['mohit', 'acre', 'rohit', 'kalyan', 'race', 'megha',  'care']
-
 print(group_anagrams(arr))
